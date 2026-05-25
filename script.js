@@ -1,8 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-let num1 = 10;
-while (num1 <= 100) {
-    console.log("faça algo!");
-    num1++;
-}
+let [a, b, c] = [1, 2, 3];
+console.log(a);
 //# sourceMappingURL=script.js.map
