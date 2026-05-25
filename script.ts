@@ -1,4 +1,6 @@
-let pessoa = { nome: "Eduardo", idade: 38};
-let { nome, idade } = pessoa;
+let arr1 = [1, 2, 3];
+let arr2 = [4, 5, 6];
 
-console.log(nome);
+let junto = [...arr1, ...arr2];
+
+console.log(junto);

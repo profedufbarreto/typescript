@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-let pessoa = { nome: "Eduardo", idade: 38 };
-let { nome, idade } = pessoa;
-console.log(nome);
+let arr1 = [1, 2, 3];
+let arr2 = [4, 5, 6];
+let junto = [...arr1, ...arr2];
+console.log(junto);
 //# sourceMappingURL=script.js.map
