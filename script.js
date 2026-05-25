@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-for (let i = 1; i <= 10; i++) {
-    console.log("Algo acontecendo!");
-    console.log(i);
+let num1 = 10;
+while (num1 <= 100) {
+    console.log("faça algo!");
+    num1++;
 }
 //# sourceMappingURL=script.js.map

@@ -1,4 +1,6 @@
-for(let i = 1; i <= 10; i++){
-    console.log("Algo acontecendo!");
-    console.log(i);
+let num1: number = 10;
+
+while(num1 <= 100){
+    console.log("faça algo!");
+    num1++;
 }
