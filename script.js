@@ -1,15 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-async function buscarGitHub() {
-    try {
-        let resposta = await fetch('https://api.github.com/users/eduardofbarreto');
-        let dados = await resposta.json();
-        console.log("Nome: " + dados.name);
-        console.log("Seguidores: " + dados.followers);
-    }
-    catch (erro) {
-        console.log("Erro: " + erro);
-    }
+function somar(a, b) {
+    return a + b;
 }
-buscarGitHub();
+console.log(somar(5, 2));
+function saudacao(nome) {
+    return "Olá, " + nome + "!";
+}
+console.log(saudacao("Eduardo"));
+function dobrarNumeros(numeros) {
+    return numeros.map(n => n * 2);
+}
+console.log(dobrarNumeros([1, 2, 3]));
 //# sourceMappingURL=script.js.map
