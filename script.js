@@ -1,11 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-function buscarDados(callback) {
-    setTimeout(() => {
-        callback("Dados carregados!");
-    }, 2000);
+function saudar(nome, callback) {
+    let mensagem = "Olá, " + nome;
+    callback(mensagem);
 }
-buscarDados((dados) => {
-    console.log(dados);
+saudar("Eduardo", (msg) => {
+    console.log(msg);
 });
 //# sourceMappingURL=script.js.map

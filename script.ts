@@ -1,9 +1,8 @@
-function buscarDados(callback: (dados: string) => void): void{
-    setTimeout(() => {
-        callback("Dados carregados!");
-    }, 2000);
+function saudar(nome: string, callback: (msg: string) => void): void{
+    let mensagem = "Olá, " + nome;
+    callback(mensagem);
 }
 
-buscarDados((dados) => {
-    console.log(dados);
-})
+saudar("Eduardo", (msg) => {
+    console.log(msg);
+});
