@@ -1,6 +1,6 @@
-let arr1 = [1, 2, 3];
-let arr2 = [4, 5, 6];
-
-let junto = [...arr1, ...arr2];
-
-console.log(junto);
+try{
+    let resultado = 10/0;
+    console.log(resultado);
+} catch(erro){
+    console.log("Erro: " + erro);
+}
