@@ -1,26 +1,57 @@
-class ContaBancaria{
-    private saldo: number;
-    public titular: string;
+class Pessoa{
+    nome: string;
+    idade: number;
 
-    constructor(titular: string, saldoInicial: number){
-        this.titular = titular;
-        this.saldo = saldoInicial;
+    constructor(nome: string, idade: number){
+        this.nome = nome;
+        this.idade = idade;
     }
 
-    public depositar(valor: number): void{
-        this.saldo += valor;
-        console.log(`Depósito de R$: ${valor} realizado!`);
-    }
-
-    public getSaldo(): number{
-        return this.saldo;
-    }
-
-    private calcularJuros(): number{
-        return this.saldo * 0.05;
+    apresentar(): string{
+        return `${this.nome} (${this.idade} anos)`;
     }
 }
 
-let conta = new ContaBancaria("Eduardo", 1000);
-conta.depositar(500);
-console.log(`Saldo: R$ ${conta.getSaldo()}`);
+let pessoas: Pessoa[] = [];
+
+function adicionarPessoa(): void{
+    let inputNome = document.getElementById('inputNome') as HTMLInputElement;
+    let inputIdade = document.getElementById('inputIdade') as HTMLInputElement;
+
+    let nome = inputNome.value;
+    let idade = parseInt(inputIdade.value);
+
+    if(nome === "" || isNaN(idade)){
+        alert("Preencha todos os campos!");
+        return;
+    }
+
+    let p = new Pessoa(nome, idade);
+    pessoas.push(p);
+
+    inputNome.value = "";
+    inputIdade.value = "";
+
+    exibirPessoas();
+}
+
+function exibirPessoas(): void{
+    let lista = document.getElementById('lista')!;
+    lista.innerHTML = "";
+
+
+    pessoas.forEach((p, index) => {
+        let div = document.createElement('div');
+        div.className = 'pessoa';
+        div.innerHTML = `
+            <strong>${p.apresentar()}</strong>
+            <button onclick="removerPessoa(${index}")>Remover</button>
+            `;
+            lista.appendChild(div);
+    });
+}
+
+function removerPessoa(index: number): void{
+    pessoas.splice(index, 1);
+    exibirPessoas();
+}
