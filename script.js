@@ -1,10 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-function saudar(nome, callback) {
-    let mensagem = "Olá, " + nome;
-    callback(mensagem);
+async function buscarDados() {
+    let resposta = await fetch('https://api.exemplo.com/dados');
+    let dados = await resposta.json();
+    console.log(dados);
 }
-saudar("Eduardo", (msg) => {
-    console.log(msg);
-});
+buscarDados();
 //# sourceMappingURL=script.js.map

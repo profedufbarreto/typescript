@@ -1,8 +1,7 @@
-function saudar(nome: string, callback: (msg: string) => void): void{
-    let mensagem = "Olá, " + nome;
-    callback(mensagem);
+async function buscarDados(): Promise<void>{
+    let resposta = await fetch('https://api.exemplo.com/dados');
+    let dados = await resposta.json();
+    console.log(dados);
 }
 
-saudar("Eduardo", (msg) => {
-    console.log(msg);
-});
+buscarDados();
