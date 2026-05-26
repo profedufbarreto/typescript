@@ -1,6 +1,9 @@
-try{
-    let resultado = 10/0;
-    console.log(resultado);
-} catch(erro){
-    console.log("Erro: " + erro);
+function buscarDados(callback: (dados: string) => void): void{
+    setTimeout(() => {
+        callback("Dados carregados!");
+    }, 2000);
 }
+
+buscarDados((dados) => {
+    console.log(dados);
+})

@@ -1,10 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-try {
-    let resultado = 10 / 0;
-    console.log(resultado);
+function buscarDados(callback) {
+    setTimeout(() => {
+        callback("Dados carregados!");
+    }, 2000);
 }
-catch (erro) {
-    console.log("Erro: " + erro);
-}
+buscarDados((dados) => {
+    console.log(dados);
+});
 //# sourceMappingURL=script.js.map
