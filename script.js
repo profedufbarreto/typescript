@@ -1,9 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-async function buscarDados() {
-    let resposta = await fetch('https://api.exemplo.com/dados');
-    let dados = await resposta.json();
-    console.log(dados);
+async function buscarGitHub() {
+    try {
+        let resposta = await fetch('https://api.github.com/users/eduardofbarreto');
+        let dados = await resposta.json();
+        console.log("Nome: " + dados.name);
+        console.log("Seguidores: " + dados.followers);
+    }
+    catch (erro) {
+        console.log("Erro: " + erro);
+    }
 }
-buscarDados();
+buscarGitHub();
 //# sourceMappingURL=script.js.map
