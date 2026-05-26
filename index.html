@@ -3,62 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Pessoas</title>
-    <style>
-        body{
-            font-family: Arial, Helvetica, sans-serif;
-            max-width: 500px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        .container{
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        input, button{
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        button{
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
-            border: none;
-        }
-
-        button:hover{
-            background-color: #0056b3;
-        }
-        #lista{
-            margin-top: 20px;
-        }
-        .pessoa{
-            background: #f9f9f9;
-            padding: 10px;
-            margin: 10px 0;
-            border-left: 4px solid #007bff;
-        }
-    </style>
+    <title>Type Script</title>
 </head>
 <body>
-    <div class="container">
-        
-        <h1>Cadastro de Pessoas</h1>
+    
+    <h1 id="titulo">Olá mundo!</h1>
 
-        <input type="text" id="inputNome" placeholder="Digite o nome: ">
-        <input type="number" id="inputIdade" placeholder="Digite a idade: ">
-        <button onclick="adicionarPessoa()">Adicionar</button>
+    <button onclick="mudarTitulo()">Clique aqui!!</button>
 
-        <div id="lista"></div>
-
-        <script src="script.js"></script>
-    </div>
+    <script src="script.js"></script>
+    
 </body>
 </html>
