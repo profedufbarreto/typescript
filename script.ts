@@ -1,17 +1,26 @@
-class Pessoa{
-    nome: string;
-    idade: number;
+class ContaBancaria{
+    private saldo: number;
+    public titular: string;
 
-    constructor(nome: string, idade: number){
-        this.nome = nome;
-        this.idade = idade;
+    constructor(titular: string, saldoInicial: number){
+        this.titular = titular;
+        this.saldo = saldoInicial;
     }
 
-    apresentar(): void{
-        console.log(`Olá, sou ${this.nome} e tenho ${this.idade} anos.`);
+    public depositar(valor: number): void{
+        this.saldo += valor;
+        console.log(`Depósito de R$: ${valor} realizado!`);
+    }
+
+    public getSaldo(): number{
+        return this.saldo;
+    }
+
+    private calcularJuros(): number{
+        return this.saldo * 0.05;
     }
 }
 
-let p1 = new Pessoa("Eduardo", 38);
-
-p1.apresentar();
+let conta = new ContaBancaria("Eduardo", 1000);
+conta.depositar(500);
+console.log(`Saldo: R$ ${conta.getSaldo()}`);

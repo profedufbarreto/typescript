@@ -1,16 +1,24 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-class Pessoa {
-    nome;
-    idade;
-    constructor(nome, idade) {
-        this.nome = nome;
-        this.idade = idade;
+class ContaBancaria {
+    saldo;
+    titular;
+    constructor(titular, saldoInicial) {
+        this.titular = titular;
+        this.saldo = saldoInicial;
     }
-    apresentar() {
-        console.log(`Olá, sou ${this.nome} e tenho ${this.idade} anos.`);
+    depositar(valor) {
+        this.saldo += valor;
+        console.log(`Depósito de R$: ${valor} realizado!`);
+    }
+    getSaldo() {
+        return this.saldo;
+    }
+    calcularJuros() {
+        return this.saldo * 0.05;
     }
 }
-let p1 = new Pessoa("Eduardo", 38);
-p1.apresentar();
+let conta = new ContaBancaria("Eduardo", 1000);
+conta.depositar(500);
+console.log(`Saldo: R$ ${conta.getSaldo()}`);
 //# sourceMappingURL=script.js.map
