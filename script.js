@@ -1,15 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-function somar(a, b) {
-    return a + b;
+class Pessoa {
+    nome;
+    idade;
+    constructor(nome, idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+    apresentar() {
+        console.log(`Olá, sou ${this.nome} e tenho ${this.idade} anos.`);
+    }
 }
-console.log(somar(5, 2));
-function saudacao(nome) {
-    return "Olá, " + nome + "!";
-}
-console.log(saudacao("Eduardo"));
-function dobrarNumeros(numeros) {
-    return numeros.map(n => n * 2);
-}
-console.log(dobrarNumeros([1, 2, 3]));
+let p1 = new Pessoa("Eduardo", 38);
+p1.apresentar();
 //# sourceMappingURL=script.js.map

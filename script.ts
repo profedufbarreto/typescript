@@ -1,17 +1,17 @@
-function somar(a: number, b: number): number{
-    return a + b;
+class Pessoa{
+    nome: string;
+    idade: number;
+
+    constructor(nome: string, idade: number){
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    apresentar(): void{
+        console.log(`Olá, sou ${this.nome} e tenho ${this.idade} anos.`);
+    }
 }
 
-console.log(somar(5, 2));
+let p1 = new Pessoa("Eduardo", 38);
 
-function saudacao(nome: string): string{
-    return "Olá, " + nome + "!";
-}
-
-console.log(saudacao("Eduardo"));
-
-function dobrarNumeros(numeros: number[]): number[]{
-    return numeros.map(n => n * 2);
-}
-
-console.log(dobrarNumeros([1,2,3]));
+p1.apresentar();
