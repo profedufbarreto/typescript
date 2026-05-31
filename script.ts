@@ -1,23 +1,37 @@
-class Pessoa{
-    nome: string;
-    idade: number;
-    email: string;
+interface Animal{
+    name: string;
+    type: string;
+    makeSound(): void;
+}
 
-    constructor(nome: string, idade: number, email: string){
-        this.nome = nome;
-        this.idade = idade;
-        this.email = email;
+class Dog implements Animal{
+    name: string;
+    type: string = "Dog";
+
+    constructor(name: string){
+        this.name = name;
     }
 
-    apresentar(): void{
-        console.log(`Olá, sou ${this.nome} e tenho ${this.idade} anos.`);
-    }
-
-    getEmail(): string{
-        return this.email;
+    makeSound(): void {
+        console.log(`${this.name} says: Woof Woof!`);
     }
 }
 
-let p1 = new Pessoa("Eduardo", 38, "fbarreto.eduardo@gmail.com");
-p1.apresentar();
-console.log(`Email: ${p1.getEmail()}`);
+class Cat implements Animal{
+    name: string;
+    type: string = "Cat";
+
+    constructor(name: string){
+        this.name = name;
+    }
+
+    makeSound(): void {
+        console.log(`${this.name} says: Meow!`);
+    }
+}
+
+let dog = new Dog("Rex");
+dog.makeSound();
+
+let cat = new Cat("Mimi");
+cat.makeSound();

@@ -1,22 +1,27 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-class Pessoa {
-    nome;
-    idade;
-    email;
-    constructor(nome, idade, email) {
-        this.nome = nome;
-        this.idade = idade;
-        this.email = email;
+class Dog {
+    name;
+    type = "Dog";
+    constructor(name) {
+        this.name = name;
     }
-    apresentar() {
-        console.log(`Olá, sou ${this.nome} e tenho ${this.idade} anos.`);
-    }
-    getEmail() {
-        return this.email;
+    makeSound() {
+        console.log(`${this.name} says: Woof Woof!`);
     }
 }
-let p1 = new Pessoa("Eduardo", 38, "fbarreto.eduardo@gmail.com");
-p1.apresentar();
-console.log(`Email: ${p1.getEmail()}`);
+class Cat {
+    name;
+    type = "Cat";
+    constructor(name) {
+        this.name = name;
+    }
+    makeSound() {
+        console.log(`${this.name} says: Meow!`);
+    }
+}
+let dog = new Dog("Rex");
+dog.makeSound();
+let cat = new Cat("Mimi");
+cat.makeSound();
 //# sourceMappingURL=script.js.map
