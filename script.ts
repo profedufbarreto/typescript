@@ -1,10 +1,4 @@
-interface Vehicle{
-    brand: string;
-    model: string;
-    year: number;
-}
-
-class Car implements Vehicle{
+class Vehicle{ //parent class
     brand: string;
     model: string;
     year: number;
@@ -15,31 +9,63 @@ class Car implements Vehicle{
         this.year = year;
     }
 
-    regirter(): void{
-        console.log(`This brand is ${this.brand}, it's model is ${this.model} and it's year ${this.year}`);
+    showInfo(): void{
+        console.log(`${this.brand}, ${this.model} and ${this.year}`);
+    }
+
+    acceletare(): void{
+        console.log("Vehicle accelerating...");
     }
 }
 
-class Motorcycle implements Vehicle{
-    brand: string;
-    model: string;
-    year: number;
-    hp: number;
+//Child class 1
 
-    constructor(brand: string, model: string, year: number, hp: number){
-        this.brand = brand;
-        this.model = model;
-        this.year = year;
-        this.hp = hp;
+class Car extends Vehicle{
+    doors: number;
+
+    constructor(brand: string, model: string, year: number, doors: number){
+        super(brand, model, year);
+        this.doors = doors;
     }
 
-    register(): void{
-        console.log(`This brand is ${this.brand}, it's model is ${this.model}, this year is ${this.year} and has ${this.hp} hp.`);
+    acceletare(): void {
+        console.log(`${this.brand} car accelerating: VROOM!`);
+    }
+
+    showInfo(): void{
+        super.showInfo();
+        console.log(`Doors: ${this.doors}`);
     }
 }
 
-let c1 = new Car("Toyota", "Hilux", 2010);
-c1.regirter();
+//Child class 1
 
-let m1 = new Motorcycle("Suzuki", "G600", 2015, 89);
-m1.register();
+class Motorcycle extends Vehicle{
+    cylinderCapacity: number;
+
+    constructor(brand: string, model: string, year: number, cylinderCapacity: number){
+        super(brand, model, year);
+        this.cylinderCapacity = cylinderCapacity;
+    }
+
+    acceletare(): void {
+        console.log(`${this.brand} motorcycle accelerating: RRRRRR!!`);
+    }
+
+    showInfo(): void {
+        super.showInfo();
+        console.log(`Cylinder Capacity: ${this.cylinderCapacity}cc`);
+    }
+}
+
+//Using the classes
+
+let myCar = new Car("Toyota", "Corolla", 2021, 4);
+myCar.showInfo();
+myCar.acceletare();
+
+console.log();
+
+let myMotorcycle = new Motorcycle("Honda", "CB 500", 2021, 500);
+myMotorcycle.showInfo();
+myMotorcycle.acceletare();
