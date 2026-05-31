@@ -1,10 +1,20 @@
-//===== SPREAD OPERATOR =====//
+interface Pessoa{
+    nome: string;
+    idade: number;
+    email: string;
+}
 
-let arr1: number[] = [1, 2, 3];
-let arr2: number[] = [4, 5, 6];
+let pessoa1: Pessoa = {
+    nome: "Eduardo",
+    idade: 38,
+    email: "fbarreto.eduardo@gmail.com"
+};
 
-let junto: number[] = [...arr1, ...arr2];
+let pessoa2: Pessoa = {
+    nome: "Bianca",
+    idade: 24,
+    email: "bianca@gmail.com"
+};
 
-console.log(`Array 1: ${arr1}`);
-console.log(`Array 2: ${arr2}`);
-console.log(`Array juntos: ${junto}`);
+console.log("Pessoa 1: ", JSON.stringify(pessoa1));
+console.log("Pessoa 2: ", JSON.stringify(pessoa2));
