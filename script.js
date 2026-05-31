@@ -1,15 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-let pessoa1 = {
-    nome: "Eduardo",
-    idade: 38,
-    email: "fbarreto.eduardo@gmail.com"
-};
-let pessoa2 = {
-    nome: "Bianca",
-    idade: 24,
-    email: "bianca@gmail.com"
-};
-console.log("Pessoa 1: ", JSON.stringify(pessoa1));
-console.log("Pessoa 2: ", JSON.stringify(pessoa2));
+class Pessoa {
+    nome;
+    idade;
+    email;
+    constructor(nome, idade, email) {
+        this.nome = nome;
+        this.idade = idade;
+        this.email = email;
+    }
+    apresentar() {
+        console.log(`Olá, sou ${this.nome} e tenho ${this.idade} anos.`);
+    }
+    getEmail() {
+        return this.email;
+    }
+}
+let p1 = new Pessoa("Eduardo", 38, "fbarreto.eduardo@gmail.com");
+p1.apresentar();
+console.log(`Email: ${p1.getEmail()}`);
 //# sourceMappingURL=script.js.map
