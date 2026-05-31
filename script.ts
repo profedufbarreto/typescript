@@ -1,37 +1,45 @@
-interface Animal{
-    name: string;
-    type: string;
-    makeSound(): void;
+interface Vehicle{
+    brand: string;
+    model: string;
+    year: number;
 }
 
-class Dog implements Animal{
-    name: string;
-    type: string = "Dog";
+class Car implements Vehicle{
+    brand: string;
+    model: string;
+    year: number;
 
-    constructor(name: string){
-        this.name = name;
+    constructor(brand: string, model: string, year: number){
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
     }
 
-    makeSound(): void {
-        console.log(`${this.name} says: Woof Woof!`);
-    }
-}
-
-class Cat implements Animal{
-    name: string;
-    type: string = "Cat";
-
-    constructor(name: string){
-        this.name = name;
-    }
-
-    makeSound(): void {
-        console.log(`${this.name} says: Meow!`);
+    regirter(): void{
+        console.log(`This brand is ${this.brand}, it's model is ${this.model} and it's year ${this.year}`);
     }
 }
 
-let dog = new Dog("Rex");
-dog.makeSound();
+class Motorcycle implements Vehicle{
+    brand: string;
+    model: string;
+    year: number;
+    hp: number;
 
-let cat = new Cat("Mimi");
-cat.makeSound();
+    constructor(brand: string, model: string, year: number, hp: number){
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.hp = hp;
+    }
+
+    register(): void{
+        console.log(`This brand is ${this.brand}, it's model is ${this.model}, this year is ${this.year} and has ${this.hp} hp.`);
+    }
+}
+
+let c1 = new Car("Toyota", "Hilux", 2010);
+c1.regirter();
+
+let m1 = new Motorcycle("Suzuki", "G600", 2015, 89);
+m1.register();
