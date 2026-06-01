@@ -1,57 +1,55 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-class Vehicle {
-    brand;
-    model;
-    year;
-    constructor(brand, model, year) {
-        this.brand = brand;
-        this.model = model;
-        this.year = year;
+class BankAccount {
+    balance;
+    accountHolder;
+    accountNumber;
+    constructor(accountHolder, initialBalance, accountNumber) {
+        this.accountHolder = accountHolder;
+        this.balance = initialBalance;
+        this.accountNumber = accountNumber;
     }
-    showInfo() {
-        console.log(`${this.brand}, ${this.model} and ${this.year}`);
+    getBalance() {
+        return this.balance;
     }
-    acceletare() {
-        console.log("Vehicle accelerating...");
+    deposit(amount) {
+        if (amount > 0) {
+            this.balance += amount;
+            console.log(`Deposited: R$ ${amount}`);
+        }
+        else {
+            console.log("Invalid amoutn!");
+        }
     }
-}
-//Child class 1
-class Car extends Vehicle {
-    doors;
-    constructor(brand, model, year, doors) {
-        super(brand, model, year);
-        this.doors = doors;
+    withdraw(amount) {
+        if (amount > 0 && amount <= this.balance) {
+            this.balance -= amount;
+            console.log(`Withdrew: R$ ${amount}`);
+            console.log("Invalid amount or insufficiente balance!");
+        }
     }
-    acceletare() {
-        console.log(`${this.brand} car accelerating: VROOM!`);
+    calculateInterest() {
+        return this.balance * 0.05;
     }
-    showInfo() {
-        super.showInfo();
-        console.log(`Doors: ${this.doors}`);
+    applyInterest() {
+        let interest = this.calculateInterest();
+        this.balance += interest;
+        console.log(`Interest applied: R$ ${interest}`);
     }
-}
-//Child class 1
-class Motorcycle extends Vehicle {
-    cylinderCapacity;
-    constructor(brand, model, year, cylinderCapacity) {
-        super(brand, model, year);
-        this.cylinderCapacity = cylinderCapacity;
-    }
-    acceletare() {
-        console.log(`${this.brand} motorcycle accelerating: RRRRRR!!`);
-    }
-    showInfo() {
-        super.showInfo();
-        console.log(`Cylinder Capacity: ${this.cylinderCapacity}cc`);
+    showAccountInfo() {
+        console.log(`\n ========= ACCOUNT INFO ==========`);
+        console.log(`Account Holder: ${this.accountHolder}`);
+        console.log(`Balance: R$ ${this.balance}`);
+        console.log(`Interest (5%): R$ ${this.calculateInterest()}`);
+        console.log(`=====================================`);
     }
 }
-//Using the classes
-let myCar = new Car("Toyota", "Corolla", 2021, 4);
-myCar.showInfo();
-myCar.acceletare();
-console.log();
-let myMotorcycle = new Motorcycle("Honda", "CB 500", 2021, 500);
-myMotorcycle.showInfo();
-myMotorcycle.acceletare();
+let account1 = new BankAccount("Eduardo", 1000, "12345");
+account1.showAccountInfo();
+account1.deposit(500);
+console.log(`Current balance: R$ ${account1.getBalance()}`);
+account1.withdraw(200);
+console.log(`Current balance: R$ ${account1.getBalance()}`);
+account1.applyInterest();
+account1.showAccountInfo();
 //# sourceMappingURL=script.js.map

@@ -1,71 +1,62 @@
-class Vehicle{ //parent class
-    brand: string;
-    model: string;
-    year: number;
+class BankAccount{
+    private balance: number;
+    public accountHolder: string;
+    protected accountNumber: string;
 
-    constructor(brand: string, model: string, year: number){
-        this.brand = brand;
-        this.model = model;
-        this.year = year;
+    constructor(accountHolder: string, initialBalance: number, accountNumber: string){
+        this.accountHolder = accountHolder;
+        this.balance = initialBalance;
+        this.accountNumber = accountNumber;
     }
 
-    showInfo(): void{
-        console.log(`${this.brand}, ${this.model} and ${this.year}`);
+    public getBalance(): number{
+        return this.balance;
     }
 
-    acceletare(): void{
-        console.log("Vehicle accelerating...");
-    }
-}
-
-//Child class 1
-
-class Car extends Vehicle{
-    doors: number;
-
-    constructor(brand: string, model: string, year: number, doors: number){
-        super(brand, model, year);
-        this.doors = doors;
+    public deposit(amount: number): void{
+        if(amount > 0){
+            this.balance += amount;
+            console.log(`Deposited: R$ ${amount}`);
+        }else{
+            console.log("Invalid amoutn!");
+        }
     }
 
-    acceletare(): void {
-        console.log(`${this.brand} car accelerating: VROOM!`);
+    public withdraw(amount: number){
+        if(amount > 0 && amount <= this.balance){
+            this.balance -= amount;
+            console.log(`Withdrew: R$ ${amount}`);
+            console.log("Invalid amount or insufficiente balance!");
+        }
     }
 
-    showInfo(): void{
-        super.showInfo();
-        console.log(`Doors: ${this.doors}`);
-    }
-}
-
-//Child class 1
-
-class Motorcycle extends Vehicle{
-    cylinderCapacity: number;
-
-    constructor(brand: string, model: string, year: number, cylinderCapacity: number){
-        super(brand, model, year);
-        this.cylinderCapacity = cylinderCapacity;
+    private calculateInterest(): number{
+        return this.balance * 0.05;
     }
 
-    acceletare(): void {
-        console.log(`${this.brand} motorcycle accelerating: RRRRRR!!`);
+    public applyInterest(): void{
+        let interest = this.calculateInterest();
+        this.balance += interest;
+        console.log(`Interest applied: R$ ${interest}`);
     }
 
-    showInfo(): void {
-        super.showInfo();
-        console.log(`Cylinder Capacity: ${this.cylinderCapacity}cc`);
+    public showAccountInfo(): void{
+        console.log(`\n ========= ACCOUNT INFO ==========`);
+        console.log(`Account Holder: ${this.accountHolder}`);
+        console.log(`Balance: R$ ${this.balance}`);
+        console.log(`Interest (5%): R$ ${this.calculateInterest()}`);
+        console.log(`=====================================`);
     }
 }
 
-//Using the classes
+let account1 = new BankAccount("Eduardo", 1000, "12345");
+account1.showAccountInfo();
 
-let myCar = new Car("Toyota", "Corolla", 2021, 4);
-myCar.showInfo();
-myCar.acceletare();
+account1.deposit(500);
+console.log(`Current balance: R$ ${account1.getBalance()}`);
 
-console.log();
+account1.withdraw(200);
+console.log(`Current balance: R$ ${account1.getBalance()}`);
 
-let myMotorcycle = new Motorcycle("Honda", "CB 500", 2021, 500);
-myMotorcycle.showInfo();
-myMotorcycle.acceletare();
+account1.applyInterest();
+account1.showAccountInfo();
