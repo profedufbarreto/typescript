@@ -1,62 +1,25 @@
-class BankAccount{
-    private balance: number;
-    public accountHolder: string;
-    protected accountNumber: string;
+class StudentWithoutEncapsulation{
+    name: string;
+    grade: number;
 
-    constructor(accountHolder: string, initialBalance: number, accountNumber: string){
-        this.accountHolder = accountHolder;
-        this.balance = initialBalance;
-        this.accountNumber = accountNumber;
+    constructor(name: string, grade: number){
+        this.name = name;
+        this.grade = grade;
     }
 
-    public getBalance(): number{
-        return this.balance;
-    }
-
-    public deposit(amount: number): void{
-        if(amount > 0){
-            this.balance += amount;
-            console.log(`Deposited: R$ ${amount}`);
-        }else{
-            console.log("Invalid amoutn!");
-        }
-    }
-
-    public withdraw(amount: number){
-        if(amount > 0 && amount <= this.balance){
-            this.balance -= amount;
-            console.log(`Withdrew: R$ ${amount}`);
-            console.log("Invalid amount or insufficiente balance!");
-        }
-    }
-
-    private calculateInterest(): number{
-        return this.balance * 0.05;
-    }
-
-    public applyInterest(): void{
-        let interest = this.calculateInterest();
-        this.balance += interest;
-        console.log(`Interest applied: R$ ${interest}`);
-    }
-
-    public showAccountInfo(): void{
-        console.log(`\n ========= ACCOUNT INFO ==========`);
-        console.log(`Account Holder: ${this.accountHolder}`);
-        console.log(`Balance: R$ ${this.balance}`);
-        console.log(`Interest (5%): R$ ${this.calculateInterest()}`);
-        console.log(`=====================================`);
+    showGrade(): void{
+        console.log(`${this.name} grade: ${this.grade}`);
     }
 }
 
-let account1 = new BankAccount("Eduardo", 1000, "12345");
-account1.showAccountInfo();
+let student1 = new StudentWithoutEncapsulation("Eduardo", 8.5);
+student1.showGrade();
 
-account1.deposit(500);
-console.log(`Current balance: R$ ${account1.getBalance()}`);
+student1.grade = 10;
+student1.showGrade();
 
-account1.withdraw(200);
-console.log(`Current balance: R$ ${account1.getBalance()}`);
+student1.grade = 999;
+student1.showGrade();
 
-account1.applyInterest();
-account1.showAccountInfo();
+student1.grade = -9;
+student1.showGrade();
