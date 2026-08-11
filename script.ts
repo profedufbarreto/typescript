@@ -1,38 +1,24 @@
-class StudentWithoutEncapsulation{
-    private name: string;
-    private grade: number;
+import * as readline from 'readline';
 
-    constructor(name: string, grade: number){
-        this.name = name;
-        this.grade = grade;
-    }
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
-    public getGrade(): number{
-        return this.grade;
-    }
+function perguntarDados(): void{
+    rl.question("Digite seu nome: ", (nome: string) => {
+        rl.question("Digite sua idade: ", (idadeStr: string) => {
+            const idade: number = parseInt(idadeStr);
 
-    public setGrade(value: number): void{
-        if(value >= 0 && value <= 10){
-            this.grade = value;
-            console.log(`Grade set to ${value}`);
-        }else{
-            console.log(`Invalid grade! Must be between 0 and 10`);
-        }
-    }
+            console.log("\n=== Dados Digitados ===");
+            console.log("Nome: " + nome);
+            console.log("Idade: " + idade);
+            console.log("Tipo do nome: " + typeof nome);
+            console.log("Tipo da idade: " + typeof idade);
 
-    public showGrade(): void{
-        console.log(`${this.name} grade: ${this.grade}`);
-    }
+            rl.close();
+        });
+    });
 }
 
-let student2 = new StudentWithoutEncapsulation("Eduardo", 8.5);
-student2.showGrade();
-
-student2.setGrade(10);
-student2.showGrade();
-
-student2.setGrade(999);
-student2.showGrade();
-
-student2.setGrade(-5);
-student2.showGrade();
+perguntarDados();
