@@ -1,24 +1,36 @@
 import * as readline from 'readline';
 
+interface Pessoa{
+    nome: string;
+    idade: number;
+    email: string;
+}
+
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
 
-function perguntarDados(): void{
-    rl.question("Digite seu nome: ", (nome: string) => {
-        rl.question("Digite sua idade: ", (idadeStr: string) => {
-            const idade: number = parseInt(idadeStr);
+function criarPessoa(): void{
+    rl.question("Nome: ", (nome: string) => {
+        rl.question("Idade: ", (idadeStr: string) => {
+            rl.question("Email: ", (email: string) => {
 
-            console.log("\n=== Dados Digitados ===");
-            console.log("Nome: " + nome);
-            console.log("Idade: " + idade);
-            console.log("Tipo do nome: " + typeof nome);
-            console.log("Tipo da idade: " + typeof idade);
+                const pessoa: Pessoa = {
+                    nome: nome,
+                    idade: parseInt(idadeStr),
+                    email: email
+                };
 
-            rl.close();
+                console.log("\n === Pessoa Criada ===");
+                console.log("Nome: " + pessoa.nome);
+                console.log("Idade: " + pessoa.idade);
+                console.log("Email: " + pessoa.email);
+
+                rl.close();
+            });
         });
     });
 }
 
-perguntarDados();
+criarPessoa();
