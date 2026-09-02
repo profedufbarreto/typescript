@@ -1,11 +1,7 @@
-import * as readline from 'readline-sync';
+const nomeAluno: string = "Lucas";
+const nota1: number = 8.5;
+const nota2: number = 6.0;
 
-const nome: string = readline.question("Qual seu nome: ");
+const media: number = (nota1 + nota2) / 2;
 
-const idade: number = readline.questionInt("Qual a sua idade: ");
-
-if(idade >= 18){
-    console.log(`Olá, ${nome}. Você é maior de idade!`);
-}else{
-    console.log(`Olá, ${nome}. Você é menor de idade!`);
-}
+console.log(`A média foi de: ${media}.`);
