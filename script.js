@@ -1,34 +1,45 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
-class StudentWithoutEncapsulation {
-    name;
-    grade;
-    constructor(name, grade) {
-        this.name = name;
-        this.grade = grade;
-    }
-    getGrade() {
-        return this.grade;
-    }
-    setGrade(value) {
-        if (value >= 0 && value <= 10) {
-            this.grade = value;
-            console.log(`Grade set to ${value}`);
-        }
-        else {
-            console.log(`Invalid grade! Must be between 0 and 10`);
-        }
-    }
-    showGrade() {
-        console.log(`${this.name} grade: ${this.grade}`);
-    }
+const readline = __importStar(require("readline-sync"));
+const nome = readline.question("Qual seu nome: ");
+const idade = readline.questionInt("Qual a sua idade: ");
+if (idade >= 18) {
+    console.log(`Olá, ${nome}. Você é maior de idade!`);
 }
-let student2 = new StudentWithoutEncapsulation("Eduardo", 8.5);
-student2.showGrade();
-student2.setGrade(10);
-student2.showGrade();
-student2.setGrade(999);
-student2.showGrade();
-student2.setGrade(-5);
-student2.showGrade();
+else {
+    console.log(`Olá, ${nome}. Você é menor de idade!`);
+}
 //# sourceMappingURL=script.js.map

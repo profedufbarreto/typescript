@@ -1,0 +1,29 @@
+{
+  "name": "typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/profedufbarreto/typescript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "types": "./script.d.ts",
+  "bugs": {
+    "url": "https://github.com/profedufbarreto/typescript/issues"
+  },
+  "homepage": "https://github.com/profedufbarreto/typescript#readme",
+  "devDependencies": {
+    "@types/readline-sync": "^1.4.8",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
