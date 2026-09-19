@@ -1,15 +1,9 @@
-interface Usuario{
-    id: number;
-    nome: string;
-    email?:string;
+function somar(a: number, b: number): number{
+    return a + b;
 }
 
-function saudar(usuario: Usuario): string{
-    return `Olá, ${usuario.nome}! Seu ID é ${usuario.id}.`;
-}
+const resultado1 = somar(4, 3);
+const resultado2 = somar(10, 20);
 
-const usuario1: Usuario = {id: 1, nome: "Eduardo"};
-const usuario2: Usuario = {id: 2, nome: "Maria", email:"maria@gmail.com"};
-
-console.log(saudar(usuario1));
-console.log(saudar(usuario2));
+console.log(`Resultado 1: ${resultado1}`);
+console.log(`Resultado 2: ${resultado2}`);
