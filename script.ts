@@ -1,7 +1,15 @@
-const nomeAluno: string = "Lucas";
-const nota1: number = 8.5;
-const nota2: number = 6.0;
+interface Usuario{
+    id: number;
+    nome: string;
+    email?:string;
+}
 
-const media: number = (nota1 + nota2) / 2;
+function saudar(usuario: Usuario): string{
+    return `Olá, ${usuario.nome}! Seu ID é ${usuario.id}.`;
+}
 
-console.log(`A média foi de: ${media}.`);
+const usuario1: Usuario = {id: 1, nome: "Eduardo"};
+const usuario2: Usuario = {id: 2, nome: "Maria", email:"maria@gmail.com"};
+
+console.log(saudar(usuario1));
+console.log(saudar(usuario2));
