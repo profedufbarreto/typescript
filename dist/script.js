@@ -38,16 +38,16 @@ const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
-function somar(a, b) {
+const somar = (a, b) => {
     return a + b;
-}
-function subtrair(a, b) {
+};
+const subtrair = (a, b) => {
     return a - b;
-}
-function multiplicar(a, b) {
+};
+const multiplicar = (a, b) => {
     return a * b;
-}
-function dividir(a, b) {
+};
+const dividir = (a, b) => {
     if (a < 0) {
         throw new Error("O valor deve ser maior que 0!");
     }
@@ -55,25 +55,48 @@ function dividir(a, b) {
         throw new Error("Não é possível dividir por 0!");
     }
     return a / b;
-}
-rl.question("Digite o valor de a: ", (aStr) => {
-    rl.question("Digite o valor de b: ", (bStr) => {
-        const a = Number(aStr);
-        const b = Number(bStr);
-        try {
-            const resultado1 = somar(a, b);
-            const resultado2 = subtrair(a, b);
-            const resultado3 = multiplicar(a, b);
-            const resultado4 = dividir(a, b);
-            console.log(`Resultado da soma: ${resultado1}`);
-            console.log(`Resultado da subtração: ${resultado2}`);
-            console.log(`Resultado da multiplicação: ${resultado3}`);
-            console.log(`Resultado da divisão: ${resultado4}`);
+};
+function calculadora() {
+    rl.question("Digite o valor de a (ou 'sair para encerrar): ", (aStr) => {
+        if (aStr.toLowerCase() === "sair") {
+            console.log("Encerrando calculadora...");
+            rl.close();
+            return;
         }
-        catch (error) {
-            console.error("Erro: ", error.message);
-        }
-        rl.close();
+        rl.question("Digite o valor de b: ", (bStr) => {
+            rl.question("Escolha a operação (+, -, *, /): ", (op) => {
+                const a = Number(aStr);
+                const b = Number(bStr);
+                if (isNaN(a) || isNaN(b)) {
+                    console.error("Erro: você deve digitar números válidos!");
+                    return calculadora();
+                }
+                try {
+                    let resultado;
+                    switch (op) {
+                        case "+":
+                            resultado = somar(a, b);
+                            break;
+                        case "-":
+                            resultado = subtrair(a, b);
+                            break;
+                        case "*":
+                            resultado = multiplicar(a, b);
+                            break;
+                        case "/":
+                            resultado = dividir(a, b);
+                            break;
+                        default: throw new Error("Operação inválida!");
+                    }
+                    console.log(`Resultado: ${resultado}`);
+                }
+                catch (error) {
+                    console.error("Erro: ", error.message);
+                }
+                calculadora();
+            });
+        });
     });
-});
+}
+calculadora();
 //# sourceMappingURL=script.js.map
