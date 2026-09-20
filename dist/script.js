@@ -1,24 +1,38 @@
 "use strict";
-class Veiculo {
-    marca;
-    constructor(marca) {
-        this.marca = marca;
+class Instrumento {
+    nome;
+    constructor(nome) {
+        this.nome = nome;
     }
-    mover() {
-        console.log(`${this.marca} está se movendo...`);
+    tocar() {
+        console.log(`${this.nome} está tocando...`);
     }
 }
-class Carro extends Veiculo {
-    portas;
-    constructor(marca, portas) {
-        super(marca);
-        this.portas = portas;
+class Violao extends Instrumento {
+    cordas;
+    constructor(nome, cordas) {
+        super(nome);
+        this.cordas = cordas;
     }
     info() {
-        console.log(`Carro da marca ${this.marca} com ${this.portas} portas.`);
+        console.log(`${this.nome} tem ${this.cordas} cordas.`);
     }
 }
-const meuCarro = new Carro("Toyota", 4);
-meuCarro.mover();
-meuCarro.info();
+class Ukulele extends Violao {
+    cor;
+    constructor(nome, cordas, cor) {
+        super(nome, cordas);
+        this.cor = cor;
+    }
+    info() {
+        super.info();
+        console.log(`A cor do Ukulele é ${this.cor}`);
+    }
+}
+const v = new Violao("Violão", 6);
+const u = new Ukulele("Ukulele", 4, "Mogmo");
+v.tocar();
+v.info();
+u.tocar();
+u.info();
 //# sourceMappingURL=script.js.map

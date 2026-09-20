@@ -1,29 +1,46 @@
-class Veiculo{
-    marca: string;
+class Instrumento{
+    protected nome: string;
 
-    constructor(marca: string){
-        this.marca = marca;
+    constructor(nome: string){
+        this.nome = nome;
     }
 
-    mover(): void{
-        console.log(`${this.marca} está se movendo...`);
+    tocar(): void{
+        console.log(`${this.nome} está tocando...`);
     }
 }
 
-class Carro extends Veiculo{
-    portas: number;
+class Violao extends Instrumento{
+    private cordas: number;
 
-    constructor(marca:string, portas: number){
-        super(marca);
-        this.portas = portas;
+    constructor(nome: string, cordas: number){
+        super(nome);
+        this.cordas = cordas;
     }
 
     info(): void{
-        console.log(`Carro da marca ${this.marca} com ${this.portas} portas.`);
+        console.log(`${this.nome} tem ${this.cordas} cordas.`);
     }
 }
 
-const meuCarro = new Carro("Toyota", 4);
+class Ukulele extends Violao{
 
-meuCarro.mover();
-meuCarro.info();
+    private cor: string;
+
+    constructor(nome: string, cordas: number, cor: string){
+        super(nome, cordas);
+        this.cor = cor;
+    }
+
+    info(): void {
+        super.info();
+        console.log(`A cor do Ukulele é ${this.cor}`);
+    }
+}
+
+const v = new Violao("Violão", 6);
+const u = new Ukulele("Ukulele", 4, "Mogmo");
+v.tocar();
+v.info();
+u.tocar();
+u.info();
