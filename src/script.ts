@@ -1,46 +1,47 @@
-class Instrumento{
+class Pessoa{
     protected nome: string;
-
+     
     constructor(nome: string){
         this.nome = nome;
     }
 
-    tocar(): void{
-        console.log(`${this.nome} está tocando...`);
+    apresentar(): void{
+        console.log(`Olá, eu sou ${this.nome}!!`);
     }
 }
 
-class Violao extends Instrumento{
-    private cordas: number;
+class Professor extends Pessoa{
+    private disciplina: string;
 
-    constructor(nome: string, cordas: number){
+     constructor(nome: string, disciplina: string){
         super(nome);
-        this.cordas = cordas;
+        this.disciplina = disciplina;
+     }
+
+     apresentar(): void{
+        console.log(`Olá, eu sou o professor ${this.nome} e ensino ${this.disciplina}!!`);
+     }
+}
+
+class Aluno extends Pessoa{
+    private curso: string;
+
+    constructor(nome: string, curso: string){
+        super(nome);
+        this.curso = curso;
     }
 
-    info(): void{
-        console.log(`${this.nome} tem ${this.cordas} cordas.`);
+    apresentar(): void {
+        console.log(`Oi, eu sou o aluno ${this.nome} do curso de ${this.curso}!!`);
     }
 }
 
-class Ukulele extends Violao{
+const pessoas: Pessoa[] = [
+    new Professor("Carlos", "Matemática"),
+    new Aluno("Eduardo", "Engenharia"),
+    new Pessoa("João")
+];
 
-    private cor: string;
-
-    constructor(nome: string, cordas: number, cor: string){
-        super(nome, cordas);
-        this.cor = cor;
-    }
-
-    info(): void {
-        super.info();
-        console.log(`A cor do Ukulele é ${this.cor}`);
-    }
+for(const p of pessoas){
+    p.apresentar();
 }
-
-const v = new Violao("Violão", 6);
-const u = new Ukulele("Ukulele", 4, "Mogmo");
-v.tocar();
-v.info();
-u.tocar();
-u.info();

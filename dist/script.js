@@ -1,38 +1,39 @@
 "use strict";
-class Instrumento {
+class Pessoa {
     nome;
     constructor(nome) {
         this.nome = nome;
     }
-    tocar() {
-        console.log(`${this.nome} está tocando...`);
+    apresentar() {
+        console.log(`Olá, eu sou ${this.nome}!!`);
     }
 }
-class Violao extends Instrumento {
-    cordas;
-    constructor(nome, cordas) {
+class Professor extends Pessoa {
+    disciplina;
+    constructor(nome, disciplina) {
         super(nome);
-        this.cordas = cordas;
+        this.disciplina = disciplina;
     }
-    info() {
-        console.log(`${this.nome} tem ${this.cordas} cordas.`);
-    }
-}
-class Ukulele extends Violao {
-    cor;
-    constructor(nome, cordas, cor) {
-        super(nome, cordas);
-        this.cor = cor;
-    }
-    info() {
-        super.info();
-        console.log(`A cor do Ukulele é ${this.cor}`);
+    apresentar() {
+        console.log(`Olá, eu sou o professor ${this.nome} e ensino ${this.disciplina}!!`);
     }
 }
-const v = new Violao("Violão", 6);
-const u = new Ukulele("Ukulele", 4, "Mogmo");
-v.tocar();
-v.info();
-u.tocar();
-u.info();
+class Aluno extends Pessoa {
+    curso;
+    constructor(nome, curso) {
+        super(nome);
+        this.curso = curso;
+    }
+    apresentar() {
+        console.log(`Oi, eu sou o aluno ${this.nome} do curso de ${this.curso}!!`);
+    }
+}
+const pessoas = [
+    new Professor("Carlos", "Matemática"),
+    new Aluno("Eduardo", "Engenharia"),
+    new Pessoa("João")
+];
+for (const p of pessoas) {
+    p.apresentar();
+}
 //# sourceMappingURL=script.js.map
