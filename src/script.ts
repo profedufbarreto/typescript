@@ -1,3 +1,7 @@
-const hugeNumber = BigInt(9007199254740991);
+const uniqueKey: symbol = Symbol('description');
 
-console.log(hugeNumber);
+const obj = {
+    [uniqueKey] : 'This is a unique property'
+};
+
+console.log(obj[uniqueKey]);

@@ -1,4 +1,7 @@
 "use strict";
-const hugeNumber = BigInt(9007199254740991);
-console.log(hugeNumber);
+const uniqueKey = Symbol('description');
+const obj = {
+    [uniqueKey]: 'This is a unique property'
+};
+console.log(obj[uniqueKey]);
 //# sourceMappingURL=script.js.map
