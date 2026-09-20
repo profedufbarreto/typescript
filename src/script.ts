@@ -1,11 +1,9 @@
-let decimal: number = 6;
-let hex: number = 0xff0d;
-let binary: number = 0b1010;
-let octal: number = 0o744;
-let float: number = 3.14;
+let color: string = "blue";
+let fullName: string = 'John Doe';
+let age: number = 40;
+let sentence: string = `Hello, my name is ${fullName} and I'll be ${age + 1} next year.`;
 
-console.log(decimal);
-console.log(hex);
-console.log(binary);
-console.log(octal);
-console.log(float);
+console.log(color);
+console.log(fullName);
+console.log(age);
+console.log(sentence);
