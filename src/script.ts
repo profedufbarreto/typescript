@@ -1,21 +1,29 @@
-class Animal{
-    nome: string;
-    idade: number = 3;
+class Veiculo{
+    marca: string;
 
-    constructor(nome: string){
-        this.nome = nome;
-        this.idade = this.idade;
+    constructor(marca: string){
+        this.marca = marca;
     }
 
-    falar(): void{
-        console.log(`${this.nome} está fazendo um som...`);
-    }
-
-    apresentar(): void{
-        console.log(`${this.nome} tem ${this.idade} anos!`);
+    mover(): void{
+        console.log(`${this.marca} está se movendo...`);
     }
 }
 
-const cachorro = new Animal("Rex");
-cachorro.falar();
-cachorro.apresentar();
+class Carro extends Veiculo{
+    portas: number;
+
+    constructor(marca:string, portas: number){
+        super(marca);
+        this.portas = portas;
+    }
+
+    info(): void{
+        console.log(`Carro da marca ${this.marca} com ${this.portas} portas.`);
+    }
+}
+
+const meuCarro = new Carro("Toyota", 4);
+
+meuCarro.mover();
+meuCarro.info();

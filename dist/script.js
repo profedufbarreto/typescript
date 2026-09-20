@@ -1,19 +1,24 @@
 "use strict";
-class Animal {
-    nome;
-    idade = 3;
-    constructor(nome) {
-        this.nome = nome;
-        this.idade = this.idade;
+class Veiculo {
+    marca;
+    constructor(marca) {
+        this.marca = marca;
     }
-    falar() {
-        console.log(`${this.nome} está fazendo um som...`);
-    }
-    apresentar() {
-        console.log(`${this.nome} tem ${this.idade} anos!`);
+    mover() {
+        console.log(`${this.marca} está se movendo...`);
     }
 }
-const cachorro = new Animal("Rex");
-cachorro.falar();
-cachorro.apresentar();
+class Carro extends Veiculo {
+    portas;
+    constructor(marca, portas) {
+        super(marca);
+        this.portas = portas;
+    }
+    info() {
+        console.log(`Carro da marca ${this.marca} com ${this.portas} portas.`);
+    }
+}
+const meuCarro = new Carro("Toyota", 4);
+meuCarro.mover();
+meuCarro.info();
 //# sourceMappingURL=script.js.map
