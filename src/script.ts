@@ -1,5 +1,5 @@
-const saudacao = (nome: string): void => {
-    console.log(`Olá, ${nome}!`);
+function soma(a: number, b: number): number{
+    return a + b;
 }
 
-saudacao("Dudu");
+console.log(soma(4, 2));

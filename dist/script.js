@@ -1,6 +1,6 @@
 "use strict";
-const saudacao = (nome) => {
-    console.log(`Olá, ${nome}!`);
-};
-saudacao("Dudu");
+function soma(a, b) {
+    return a + b;
+}
+console.log(soma(4, 2));
 //# sourceMappingURL=script.js.map
