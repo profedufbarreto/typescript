@@ -1,6 +1,5 @@
 "use strict";
-const soma = (a, b) => {
-    return a + b;
-};
-console.log(soma(8, 2));
+const numeros = [1, 2, 3, 4, 5];
+const dobrados = numeros.map(n => n * 2);
+console.log(dobrados);
 //# sourceMappingURL=script.js.map

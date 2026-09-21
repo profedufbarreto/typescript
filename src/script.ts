@@ -1,5 +1,4 @@
-const soma = (a: number, b: number): number =>{
-    return a + b;
-}
+const numeros = [1, 2, 3, 4, 5];
+const dobrados = numeros.map(n => n * 2);
 
-console.log(soma(8, 2));
+console.log(dobrados);
