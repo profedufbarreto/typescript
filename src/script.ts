@@ -1,5 +1,8 @@
-const palavras = ["Oi", "Eduardo", "tudo", "bem?"];
+const letras = ["a", "b", "a", "c", "b", "a"];
 
-const frase = palavras.reduce((acc, p) => acc + " " + p);
+const contagem = letras.reduce((acc, letra) => {
+    acc[letra] = (acc[letra] || 0) + 1;
+    return acc;
+}, {} as Record<string, number>);
 
-console.log(frase);
+console.log(contagem);
