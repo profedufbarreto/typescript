@@ -1,5 +1,5 @@
 "use strict";
-const numeros = [2, 3, 4];
-const produto = numeros.reduce((acc, n) => acc * n, 1);
-console.log(produto);
+const palavras = ["Oi", "Eduardo", "tudo", "bem?"];
+const frase = palavras.reduce((acc, p) => acc + " " + p);
+console.log(frase);
 //# sourceMappingURL=script.js.map

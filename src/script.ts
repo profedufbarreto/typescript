@@ -1,5 +1,5 @@
-const numeros = [2, 3, 4];
+const palavras = ["Oi", "Eduardo", "tudo", "bem?"];
 
-const produto = numeros.reduce((acc, n) => acc * n, 1);
+const frase = palavras.reduce((acc, p) => acc + " " + p);
 
-console.log(produto);
+console.log(frase);
