@@ -1,5 +1,5 @@
-const saudacao = (): void =>{
-    console.log("Olá, mundo!");
+function saudacao(nome: string){
+    console.log(`Olá, ${nome}!!`);
 }
 
-saudacao();
+saudacao("Dudu");
