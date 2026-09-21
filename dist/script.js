@@ -1,6 +1,6 @@
 "use strict";
-function saudacao() {
+const saudacao = () => {
     console.log("Olá, mundo!");
-}
+};
 saudacao();
 //# sourceMappingURL=script.js.map
