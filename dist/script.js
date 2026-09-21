@@ -1,6 +1,6 @@
 "use strict";
-function soma(a, b) {
+const soma = (a, b) => {
     return a + b;
-}
-console.log(soma(4, 2));
+};
+console.log(soma(8, 2));
 //# sourceMappingURL=script.js.map

@@ -1,5 +1,5 @@
-function soma(a: number, b: number): number{
+const soma = (a: number, b: number): number =>{
     return a + b;
 }
 
-console.log(soma(4, 2));
+console.log(soma(8, 2));
