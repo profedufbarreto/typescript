@@ -1,32 +1,48 @@
-class Veiculo{
-    protected modelo: string;
+abstract class FormaGeometrica {
+    protected nome: string;
 
-    constructor(modelo: string){
-        this.modelo = modelo;
+    constructor(nome: string){
+        this.nome = nome;
     }
 
-    mover(): void{
-        console.log(`${this.modelo} está se movendo...`);
-    }
-}
+    abstract calcularArea(): number;
 
-class Carro extends Veiculo{
-    mover(): void{
-        console.log(`${this.modelo} está dirigindo na estrada.`);
+    info(): void{
+        console.log(`Forma: ${this.nome}, Área: ${this.calcularArea()}`);
     }
 }
 
-class Aviao extends Veiculo{
-    mover(): void{
-        console.log(`${this.modelo} está voando nos céus.`);
+class Quadrado extends FormaGeometrica{
+    private lado: number;
+
+    constructor(lado: number){
+        super("Quadrado");
+        this.lado = lado;
+    }
+
+    calcularArea(): number{
+        return this.lado * this.lado;
     }
 }
 
-const veiculos: Veiculo[] = [
-    new Carro("Sedan"),
-    new Aviao("Boeing 737")
+class Circulo extends FormaGeometrica{
+    private raio: number;
+
+    constructor(raio: number){
+        super("Círculo");
+        this.raio = raio;
+    }
+
+    calcularArea(): number {
+        return Math.PI * this.raio * this.raio;
+    }
+}
+
+const formas: FormaGeometrica[] = [
+    new Quadrado(4),
+    new Circulo(3)
 ];
 
-for(const v of veiculos){
-    v.mover();
+for(const f of formas){
+    f.info();
 }
