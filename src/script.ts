@@ -1,5 +1,5 @@
-const numeros = [1, 2, 3, 4, 5];
+const numeros = [2, 3, 4];
 
-const soma = numeros.reduce((acc, n) => acc + n, 0);
+const produto = numeros.reduce((acc, n) => acc * n, 1);
 
-console.log(soma);
+console.log(produto);
