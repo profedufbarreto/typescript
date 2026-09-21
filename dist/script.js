@@ -1,39 +1,28 @@
 "use strict";
-class Pessoa {
-    nome;
-    constructor(nome) {
-        this.nome = nome;
+class Veiculo {
+    modelo;
+    constructor(modelo) {
+        this.modelo = modelo;
     }
-    apresentar() {
-        console.log(`Olá, eu sou ${this.nome}!!`);
-    }
-}
-class Professor extends Pessoa {
-    disciplina;
-    constructor(nome, disciplina) {
-        super(nome);
-        this.disciplina = disciplina;
-    }
-    apresentar() {
-        console.log(`Olá, eu sou o professor ${this.nome} e ensino ${this.disciplina}!!`);
+    mover() {
+        console.log(`${this.modelo} está se movendo...`);
     }
 }
-class Aluno extends Pessoa {
-    curso;
-    constructor(nome, curso) {
-        super(nome);
-        this.curso = curso;
-    }
-    apresentar() {
-        console.log(`Oi, eu sou o aluno ${this.nome} do curso de ${this.curso}!!`);
+class Carro extends Veiculo {
+    mover() {
+        console.log(`${this.modelo} está dirigindo na estrada.`);
     }
 }
-const pessoas = [
-    new Professor("Carlos", "Matemática"),
-    new Aluno("Eduardo", "Engenharia"),
-    new Pessoa("João")
+class Aviao extends Veiculo {
+    mover() {
+        console.log(`${this.modelo} está voando nos céus.`);
+    }
+}
+const veiculos = [
+    new Carro("Sedan"),
+    new Aviao("Boeing 737")
 ];
-for (const p of pessoas) {
-    p.apresentar();
+for (const v of veiculos) {
+    v.mover();
 }
 //# sourceMappingURL=script.js.map

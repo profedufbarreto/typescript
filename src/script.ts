@@ -1,47 +1,32 @@
-class Pessoa{
-    protected nome: string;
-     
-    constructor(nome: string){
-        this.nome = nome;
+class Veiculo{
+    protected modelo: string;
+
+    constructor(modelo: string){
+        this.modelo = modelo;
     }
 
-    apresentar(): void{
-        console.log(`Olá, eu sou ${this.nome}!!`);
-    }
-}
-
-class Professor extends Pessoa{
-    private disciplina: string;
-
-     constructor(nome: string, disciplina: string){
-        super(nome);
-        this.disciplina = disciplina;
-     }
-
-     apresentar(): void{
-        console.log(`Olá, eu sou o professor ${this.nome} e ensino ${this.disciplina}!!`);
-     }
-}
-
-class Aluno extends Pessoa{
-    private curso: string;
-
-    constructor(nome: string, curso: string){
-        super(nome);
-        this.curso = curso;
-    }
-
-    apresentar(): void {
-        console.log(`Oi, eu sou o aluno ${this.nome} do curso de ${this.curso}!!`);
+    mover(): void{
+        console.log(`${this.modelo} está se movendo...`);
     }
 }
 
-const pessoas: Pessoa[] = [
-    new Professor("Carlos", "Matemática"),
-    new Aluno("Eduardo", "Engenharia"),
-    new Pessoa("João")
+class Carro extends Veiculo{
+    mover(): void{
+        console.log(`${this.modelo} está dirigindo na estrada.`);
+    }
+}
+
+class Aviao extends Veiculo{
+    mover(): void{
+        console.log(`${this.modelo} está voando nos céus.`);
+    }
+}
+
+const veiculos: Veiculo[] = [
+    new Carro("Sedan"),
+    new Aviao("Boeing 737")
 ];
 
-for(const p of pessoas){
-    p.apresentar();
+for(const v of veiculos){
+    v.mover();
 }
